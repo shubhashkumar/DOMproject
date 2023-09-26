@@ -20,8 +20,20 @@
 // }
 
 //query selector
-var item2= document.querySelector(".list-group-item:nth-child(2)");
-item2.style.backgroundColor="green";
+// var item2= document.querySelector(".list-group-item:nth-child(2)");
+// item2.style.backgroundColor="green";
 
-var item3= document.querySelector(".list-group-item:nth-child(3)");
-item3.style.visibility = "hidden";
+// var item3= document.querySelector(".list-group-item:nth-child(3)");
+// item3.style.visibility = "hidden";
+
+//query selector all
+var odds= document.querySelectorAll("li:nth-child(odd)");
+for(var i=0;i<odds.length;i++)
+{
+    odds[i].style.backgroundColor="green";
+}
+var evens= document.querySelectorAll("li:nth-child(even)");
+for(var i=0;i<evens.length;i++)
+{
+    evens[i].style.backgroundColor="yellow";
+}
