@@ -77,16 +77,21 @@ newDiv.id="hello1";
 newDiv.setAttribute("title","hello div");
 //console.log(newDiv);
 //create a text node
-var newDivText= document.createTextNode("hello world ");
+var addText= document.createTextNode("Hellow World");
 //add text to div
-newDiv.appendChild(newDivText);
-//console.log(newDiv);
+newDiv.appendChild(addText);
+console.log(newDiv);
 //itemList.firstElementChild.append(newDiv);
 
 //var headText=document.createTextNode("HEllo Word ");
 var container= document.querySelector("head title");
-console.log(container);
+//console.log(container);
 //container.append(newDivText);
-container.prepend(newDivText);
+//container.prepend(newDivText);
+var items= document.querySelector('.list-group')
+//console.log(items);
+var firstItem= document.querySelector('.list-group li')
+items.insertBefore(newDiv,firstItem);
+items.style.backgroundColor="red";
 
 
