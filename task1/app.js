@@ -39,14 +39,14 @@
 // }
 
 //traversing the DOM
-var itemList= document.querySelector("#items");
+//var itemList= document.querySelector("#items");
 //console.log(itemList.parentNode);
 //itemList.parentNode.style.backgroundColor="yellow";
 //console.log(itemList.childNodes.length);
 //console.log(itemList.childElementCount);
 //console.log(itemList.lastElementChild);
-itemList.parentElement.style.backgroundColor="yellow";
-itemList.parentElement.parentElement.parentElement.style.border="10px solid";
+//itemList.parentElement.style.backgroundColor="yellow";
+//itemList.parentElement.parentElement.parentElement.style.border="10px solid";
 //console.log(itemList.parentElement.parentElement.parentElement.parentElement);
 
 //child element
@@ -69,29 +69,78 @@ itemList.parentElement.parentElement.parentElement.style.border="10px solid";
 //next sibling previous sibling
 // //create element
 //create a div
-var newDiv=document.createElement("div");
+//var newDiv=document.createElement("div");
 //add class
-newDiv.className="hello";
-newDiv.id="hello1";
+//newDiv.className="hello";
+//newDiv.id="hello1";
 //add attribute
-newDiv.setAttribute("title","hello div");
+//newDiv.setAttribute("title","hello div");
 //console.log(newDiv);
 //create a text node
-var addText= document.createTextNode("Hellow World");
+//var addText= document.createTextNode("Hellow World");
 //add text to div
-newDiv.appendChild(addText);
-console.log(newDiv);
+// newDiv.appendChild(addText);
+// console.log(newDiv);
 //itemList.firstElementChild.append(newDiv);
 
 //var headText=document.createTextNode("HEllo Word ");
-var container= document.querySelector("head title");
+//var container= document.querySelector("head title");
 //console.log(container);
 //container.append(newDivText);
 //container.prepend(newDivText);
-var items= document.querySelector('.list-group')
+//var items= document.querySelector('.list-group')
 //console.log(items);
-var firstItem= document.querySelector('.list-group li')
-items.insertBefore(newDiv,firstItem);
-items.style.backgroundColor="red";
+// var firstItem= document.querySelector('.list-group li')
+// items.insertBefore(newDiv,firstItem);
+// items.style.backgroundColor="red";
 
+var form= document.getElementById('addForm');
+//console.log(form);
+var itemList= document.getElementById("items");
+//console.log(itemList);
+
+//form submit event 
+form.addEventListener("submit",addItem);
+function addItem(e)
+{
+    e.preventDefault();
+    //get input value
+    var newItem= document.getElementById("item").value;
+    //create new li element 
+    var li= document.createElement("li");
+    //add class 
+    li.className="list-group-item";
+   // console.log(li);
+   li.appendChild(document.createTextNode(newItem));
+   console.log(li);
+   itemList.appendChild(li);
+   // Create del button element
+  var deleteBtn = document.createElement('button');
+
+  // Add classes to del button
+  deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+
+  // Append text node
+  deleteBtn.appendChild(document.createTextNode('X'));
+  // Append button to li
+  li.appendChild(deleteBtn);
+
+  // Append li to list
+  itemList.appendChild(li);
+
+}
+//delete event
+itemList.addEventListener('click', removeItem);
+function removeItem(e)
+{
+ if(e.target.classList.contains('delete'))
+ {
+   if(confirm("are you sure?"))
+   {
+    var li=e.target.parentElement;
+    console.log(li);
+    itemList.removeChild(li);
+   }
+ }
+}
 
