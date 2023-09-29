@@ -27,13 +27,66 @@
 // item3.style.visibility = "hidden";
 
 //query selector all
-var odds= document.querySelectorAll("li:nth-child(odd)");
-for(var i=0;i<odds.length;i++)
-{
-    odds[i].style.backgroundColor="green";
-}
-var evens= document.querySelectorAll("li:nth-child(even)");
-for(var i=0;i<evens.length;i++)
-{
-    evens[i].style.backgroundColor="yellow";
-}
+// var odds= document.querySelectorAll("li:nth-child(odd)");
+// for(var i=0;i<odds.length;i++)
+// {
+//     odds[i].style.backgroundColor="green";
+// }
+// var evens= document.querySelectorAll("li:nth-child(even)");
+// for(var i=0;i<evens.length;i++)
+// {
+//     evens[i].style.backgroundColor="yellow";
+// }
+
+//traversing the DOM
+var itemList= document.querySelector("#items");
+//console.log(itemList.parentNode);
+//itemList.parentNode.style.backgroundColor="yellow";
+//console.log(itemList.childNodes.length);
+//console.log(itemList.childElementCount);
+//console.log(itemList.lastElementChild);
+itemList.parentElement.style.backgroundColor="yellow";
+itemList.parentElement.parentElement.parentElement.style.border="10px solid";
+//console.log(itemList.parentElement.parentElement.parentElement.parentElement);
+
+//child element
+// itemList.firstElementChild.addEventListener("mouseover",()=>
+// {
+//     itemList.firstElementChild.innerHTML="Pen";
+// })
+// itemList.firstElementChild.addEventListener("mouseout",()=>
+// {
+//     itemList.firstElementChild.innerHTML="add first element";
+// })
+//console.log(itemList.childNodes);
+// console.log(itemList.children);
+// for(var i=0;i<itemList.children.length;i++)
+// {
+//     itemList.children[i].style.border="dotted";
+//     itemList.children[i].style.backgroundColor="brown";
+// }
+//last child ,lastelement child
+//next sibling previous sibling
+// //create element
+//create a div
+var newDiv=document.createElement("div");
+//add class
+newDiv.className="hello";
+newDiv.id="hello1";
+//add attribute
+newDiv.setAttribute("title","hello div");
+//console.log(newDiv);
+//create a text node
+var newDivText= document.createTextNode("hello world ");
+//add text to div
+newDiv.appendChild(newDivText);
+//console.log(newDiv);
+//itemList.firstElementChild.append(newDiv);
+
+//var headText=document.createTextNode("HEllo Word ");
+var container= document.querySelector("head title");
+console.log(container);
+//container.append(newDivText);
+container.prepend(newDivText);
+
+
