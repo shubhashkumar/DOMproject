@@ -138,9 +138,34 @@ function removeItem(e)
    if(confirm("are you sure?"))
    {
     var li=e.target.parentElement;
-    console.log(li);
+    //console.log(li);
     itemList.removeChild(li);
    }
  }
 }
 
+//filter 
+var filter= document.getElementById("filter");
+//filter event
+filter.addEventListener("keyup",filterItems);
+function filterItems(e)
+{
+    //convert into lowercase
+    var text= e.target.value.toLowerCase();
+    //console.log(text);
+    //get lists
+    var items= itemList.getElementsByTagName("li");
+   // console.log(items);
+   Array.from(items).forEach(function(itemA)
+   {
+     var itemName=itemA.firstChild.textContent;
+     //console.log(itemName);
+     if(itemName.toLowerCase().indexOf(text)!= -1)
+     {
+        itemA.style.display="block";
+     }
+     else{
+        itemA.style.display="none";
+     }
+   });
+}
