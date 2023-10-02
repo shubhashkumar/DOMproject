@@ -105,7 +105,7 @@ function addItem(e)
 {
     e.preventDefault();
     //get input value
-    var newItem= document.getElementById("item").value;
+    var newItem= document.getElementById("item").value+document.getElementById("itemi").value;
     //create new li element 
     var li= document.createElement("li");
     //add class 
